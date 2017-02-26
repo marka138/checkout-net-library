@@ -37,6 +37,9 @@
         private static string _recurringCustomerPaymentPlanApiUri;
         private static string _visaCheckout;
 
+        private static string _shoppingListApiUri;
+        private static string _shoppingListsApiUri;
+
         public static void ResetApiUrls()
         {
             _cardTokensApiUri = null;
@@ -182,5 +185,12 @@
                 _recurringCustomerPaymentPlanApiUri ??
                 (_recurringCustomerPaymentPlanApiUri =
                     string.Concat(AppSettings.BaseApiUri, "/recurringPayments/customers/{0}"));
+
+        public static string ShoppingLists
+            => _shoppingListsApiUri ?? (_shoppingListsApiUri = string.Concat(AppSettings.BaseApiUri, "/shoppinglist"));
+
+        public static string ShoppingList
+            => _shoppingListApiUri ?? (_shoppingListApiUri = string.Concat(AppSettings.BaseApiUri, "/shoppinglist?itemname={0}"));
+
     }
 }

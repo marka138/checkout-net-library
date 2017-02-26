@@ -5,6 +5,7 @@ using Checkout.ApiServices.Reporting.RequestModels;
 using Checkout.ApiServices.RecurringPayments.RequestModels;
 using Checkout.ApiServices.SharedModels;
 using Checkout.ApiServices.Tokens.RequestModels;
+using Checkout.ApiServices.ShoppingLists.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -632,6 +633,26 @@ namespace Tests
             return GetQueryRequest(null);
         }
 
+        #endregion
+
+        #region Shopping List Helpers
+
+        public static ShoppingListItemCreate GetShoppingListItemCreateModel()
+        {
+            return new ShoppingListItemCreate()
+            {
+                ItemName = RandomData.GetString(),
+                Quantity = RandomData.GetNumber(1, 20)
+            };
+        }
+        public static ShoppingListItemUpdate GetShoppingListItemUpdateModel()
+        {
+            return new ShoppingListItemUpdate()
+            {
+                ItemName = RandomData.GetString(),
+                Quantity = RandomData.GetNumber(1, 20)
+            };
+        }
         #endregion
 
         /// <summary>
